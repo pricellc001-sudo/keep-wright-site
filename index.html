@@ -7,11 +7,11 @@
 <meta name="description" content="Keep-Wright sets up automatic missed-call text-back and lead follow-up for small local businesses in Toledo and Northwest Ohio.">
 <meta name="theme-color" content="#0a0908">
 <!--
-  PLACEHOLDERS TO SWAP BEFORE LAUNCH
-  1. Stripe: every link with data-stripe="audit" (href="#stripe-audit") -> real Stripe Payment Link.
-  2. [POSTAL ADDRESS] in the contact section.
+  TO SWAP WHEN READY
+  1. Stripe: every link with data-stripe="audit" currently opens an order email.
+     Replace its href with the real Stripe Payment Link (3 links).
+  2. Postal address: add it inside <address> in the contact section (marked with a comment).
   3. Refund policy wording: owner to approve.
-  Visible placeholders carry class="ph" (dashed outline) so they are easy to spot.
 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -213,7 +213,7 @@ footer nav { display: flex; flex-wrap: wrap; gap: 8px 22px; }
       <h1 id="h-hero">Never lose a local job to a missed call.</h1>
       <p class="lede">Every missed call and web inquiry gets a reply in under a minute.</p>
       <div class="buy">
-        <a class="btn" href="#stripe-audit" data-stripe="audit">Get the Missed-Call Audit · $99</a>
+        <a class="btn" href="mailto:legend@keep-wright.com?subject=Missed-Call%20Audit%20order" data-stripe="audit">Order the Missed-Call Audit · $99</a>
         <small>Written report, delivered in 3 business days.</small>
       </div>
     </div>
@@ -273,7 +273,7 @@ footer nav { display: flex; flex-wrap: wrap; gap: 8px 22px; }
         <p class="lede">About <span id="c-year">$27,300</span> a year in jobs that may be going to the next company.</p>
       </div>
       <div class="buy reveal">
-        <a class="btn" href="#stripe-audit" data-stripe="audit">Find out for sure · $99 audit</a>
+        <a class="btn" href="mailto:legend@keep-wright.com?subject=Missed-Call%20Audit%20order" data-stripe="audit">Find out for sure · $99 audit</a>
         <small>Simple arithmetic on your own numbers. An estimate, not a promise.</small>
       </div>
     </div>
@@ -293,8 +293,8 @@ footer nav { display: flex; flex-wrap: wrap; gap: 8px 22px; }
             <div class="amt">$99</div>
             <p>A written report showing how your phones, website and online listings may be costing you jobs, with specific fixes. Delivered digitally within 3 business days.</p>
             <div class="buy">
-              <a class="btn" href="#stripe-audit" data-stripe="audit">Buy the audit · $99</a>
-              <span class="ph">Placeholder: Stripe link not connected yet</span>
+              <a class="btn" href="mailto:legend@keep-wright.com?subject=Missed-Call%20Audit%20order" data-stripe="audit">Order the audit · $99</a>
+              <small>Order by email. We reply within one business day.</small>
             </div>
           </li>
           <li class="price">
@@ -340,7 +340,7 @@ footer nav { display: flex; flex-wrap: wrap; gap: 8px 22px; }
       <h2 id="h-contact">Email is the fastest way to reach us.</h2>
       <p class="lede">We reply within one business day.</p>
       <a class="big" href="mailto:legend@keep-wright.com">legend@keep-wright.com</a>
-      <address><span class="ph">[POSTAL ADDRESS]</span><br>Serving Toledo, OH and nearby.</address>
+      <address><!-- [POSTAL ADDRESS] goes here, followed by <br> -->Serving Toledo, OH and nearby.</address>
     </div>
   </section>
 </main>

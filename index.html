@@ -22,7 +22,7 @@
   1. Stripe: every link with data-stripe="audit" currently opens an order email.
      Replace its href with the real Stripe Payment Link (3 links).
   2. Postal address: add it inside <address> in the contact section (marked with a comment).
-  3. Refund policy wording: owner to approve.
+  3. Refund policy lives in refund.html (owner approved the wording 2026-10-05).
 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -325,7 +325,7 @@ footer nav { display: flex; flex-wrap: wrap; gap: 8px 22px; }
             <p>Email us what you're looking for.</p>
           </li>
         </ul>
-        <p class="fine">All prices in USD. Digital services only; no physical goods are shipped.</p>
+        <p class="fine">All prices in USD. Digital services only; no physical goods are shipped. <a href="refund.html">Our promise: you only pay for work that works.</a></p>
       </div>
     </div>
   </section>
@@ -370,12 +370,8 @@ footer nav { display: flex; flex-wrap: wrap; gap: 8px 22px; }
     </div>
     <div id="refunds">
       <h2>Refund policy</h2>
-      <ul>
-        <li>Audit: full refund if the report is not delivered within the stated time.</li>
-        <li>Setup: if we can't deliver the agreed scope, we refund the unused portion.</li>
-        <li>Monthly support: cancel anytime. The current month is not refunded once it has started.</li>
-        <li>To request a refund, email legend@keep-wright.com.</li>
-      </ul>
+      <p>The audit finds something or it's free. The setup works on your own test call or you don't pay. Monthly support cancels with one email. Refunds are issued within one business day.</p>
+      <p><a href="refund.html">Read our promise and the full refund policy</a></p>
     </div>
     <div id="privacy">
       <h2>Privacy</h2>
@@ -390,7 +386,7 @@ footer nav { display: flex; flex-wrap: wrap; gap: 8px 22px; }
     <nav aria-label="Policy links">
       <a href="#terms">Terms</a>
       <a href="#privacy">Privacy</a>
-      <a href="#refunds">Refund policy</a>
+      <a href="refund.html">Refund policy</a>
     </nav>
   </div>
 </footer>

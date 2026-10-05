@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Keep-Wright | Never lose a local job to a missed call</title>
+<meta name="description" content="Keep-Wright sets up automatic missed-call text-back and lead follow-up for small local businesses in Toledo and Northwest Ohio.">
+<meta name="theme-color" content="#0a0908">
+<!--
+  PLACEHOLDERS TO SWAP BEFORE LAUNCH
+  1. Stripe: every link with data-stripe="audit" (href="#stripe-audit") -> real Stripe Payment Link.
+  2. [POSTAL ADDRESS] in the contact section.
+  3. Refund policy wording: owner to approve.
+  Visible placeholders carry class="ph" (dashed outline) so they are easy to spot.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/still-2400.jpg" imagesrcset="assets/still-1100.jpg 1100w, assets/still-2400.jpg 2400w" imagesizes="100vw">
+<style>
+:root {
+  --black: #0a0908;
+  --bone: #e9e3d6;
+  --dim: #979083;
+  --rule: rgba(233, 227, 214, 0.16);
+  --accent: #b3925e;
+  --fade: 0.8s ease-out;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--black);
+  color: var(--bone);
+  font-family: "Archivo", system-ui, sans-serif;
+  font-variation-settings: "wdth" 100;
+  font-weight: 300;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+a { color: inherit; text-underline-offset: 4px; text-decoration-thickness: 1px; transition: color var(--fade), text-decoration-color var(--fade); }
+a:hover { color: var(--accent); }
+a:focus-visible { outline: 2px solid var(--bone); outline-offset: 4px; }
+p { margin: 0 0 1em; max-width: 54ch; }
+.wrap { width: 100%; max-width: 82rem; margin: 0 auto; padding: 0 20px; }
+@media (min-width: 760px) { .wrap { padding: 0 56px; } }
+
+/* type: one family, three voices */
+.label {
+  font-size: 0.75rem; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase;
+  font-variation-settings: "wdth" 110; color: var(--accent); margin: 0 0 1.5rem;
+}
+h1, h2 { font-variation-settings: "wdth" 68; font-weight: 600; line-height: 0.96; letter-spacing: -0.005em; margin: 0; }
+h1 { font-size: clamp(2.9rem, 5.8vw, 5.4rem); max-width: 16ch; }
+h2 { font-size: clamp(2.1rem, 4.6vw, 4rem); max-width: 17ch; }
+h3 { font-size: 1.0625rem; font-weight: 500; font-variation-settings: "wdth" 100; margin: 0; }
+.lede { font-size: clamp(1.0625rem, 1.5vw, 1.25rem); color: var(--bone); opacity: 0.86; margin-top: 1.75rem; }
+
+/* film grain over everything, generated in script */
+.grain { position: fixed; inset: 0; z-index: 50; pointer-events: none; opacity: 0.055; }
+
+/* a scene: one photograph, full bleed, title card in the lower third */
+.scene { position: relative; min-height: 100vh; min-height: 100svh; display: flex; align-items: flex-end; overflow: hidden; }
+.scene.short { min-height: 86vh; min-height: 86svh; }
+.scene .bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.scene .shade {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 90% 80% at 50% 42%, transparent 30%, rgba(10, 9, 8, 0.72) 100%),
+    linear-gradient(to bottom, rgba(10, 9, 8, 0.5) 0, transparent 20%, transparent 40%, rgba(10, 9, 8, 0.9) 84%, var(--black) 100%);
+}
+.scene .card { position: relative; padding-top: 30vh; padding-bottom: clamp(48px, 10vh, 120px); }
+.hero .bg { filter: saturate(0.45) sepia(0.25) brightness(1.25); height: 62%; object-position: 40% 50%; }
+.hero .shade { background: linear-gradient(to bottom, rgba(10, 9, 8, 0.45) 0, transparent 18%, transparent 40%, var(--black) 62%); }
+.hero .card { padding-top: 56vh; }
+@media (min-width: 900px) {
+  .hero .bg { height: 100%; width: 140%; left: 20%; object-position: 50% 78%; }
+  .hero .shade { background:
+    linear-gradient(to right, var(--black) 20%, transparent 46%),
+    radial-gradient(ellipse 90% 80% at 60% 45%, transparent 35%, rgba(10, 9, 8, 0.7) 100%),
+    linear-gradient(to bottom, rgba(10, 9, 8, 0.5) 0, transparent 20%, transparent 70%, var(--black) 100%); }
+  .hero .card { padding-top: 30vh; }
+}
+.voicemail .bg { filter: saturate(0.55) brightness(0.6); object-position: 50% 68%; }
+@media (min-width: 900px) {
+  .voicemail .bg { filter: saturate(0.5) brightness(0.72); object-position: 50% 44%; }
+  .scene.short .shade { background: linear-gradient(to right, rgba(10, 9, 8, 0.82) 0, rgba(10, 9, 8, 0.35) 48%, transparent 75%), linear-gradient(to bottom, var(--black) 0, transparent 16%, transparent 50%, rgba(10, 9, 8, 0.9) 88%, var(--black) 100%); }
+}
+.who .bg { filter: saturate(0.55) brightness(0.62); object-position: 50% 40%; }
+.contact .bg { filter: saturate(0.55) brightness(0.8); object-position: 50% 30%; }
+
+/* top line */
+.top { position: absolute; top: 0; left: 0; right: 0; z-index: 2; }
+.top .wrap { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding-top: 26px; }
+.mark { font-weight: 600; font-variation-settings: "wdth" 112; letter-spacing: 0.2em; text-transform: uppercase; font-size: 0.8125rem; text-decoration: none; }
+.top .mail { font-size: 0.8125rem; letter-spacing: 0.04em; color: var(--bone); opacity: 0.8; text-decoration: none; }
+.top .mail:hover { opacity: 1; }
+@media (max-width: 480px) { .top .mail { display: none; } }
+
+/* the one action */
+.buy { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 22px; margin-top: 2.25rem; }
+.btn {
+  display: inline-block; padding: 16px 26px; border: 1px solid var(--accent); border-radius: 1px;
+  background: var(--accent); color: var(--black); text-decoration: none;
+  font-weight: 600; font-size: 0.9375rem; letter-spacing: 0.06em;
+  transition: background-color var(--fade), color var(--fade), opacity 0.2s ease-out;
+}
+.btn:hover { background: transparent; color: var(--bone); }
+.btn:active { opacity: 0.7; }
+.buy small { font-size: 0.875rem; color: var(--dim); }
+
+/* text passages between scenes */
+.passage { padding: clamp(88px, 17vh, 190px) 0; }
+.cols { display: grid; gap: 40px 72px; }
+@media (min-width: 900px) { .cols { grid-template-columns: 5fr 7fr; } }
+.rows { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
+.rows > li { padding: 22px 0; border-bottom: 1px solid var(--rule); }
+.rows p { color: var(--dim); margin: 4px 0 0; }
+
+.price { display: grid; gap: 6px 32px; }
+@media (min-width: 620px) { .price { grid-template-columns: 1fr auto; align-items: baseline; } .price > p, .price > ul, .price > .buy { grid-column: 1; } }
+.amt { font-variation-settings: "wdth" 68; font-weight: 600; font-size: 2rem; line-height: 1; white-space: nowrap; }
+.amt small { font-variation-settings: "wdth" 100; font-weight: 300; font-size: 0.875rem; color: var(--dim); }
+.covers { margin: 12px 0 0; padding: 0 0 0 1.1em; color: var(--dim); max-width: 54ch; }
+.covers li { margin-bottom: 4px; }
+.price .buy { margin-top: 1.25rem; }
+.fine { font-size: 0.875rem; color: var(--dim); margin-top: 22px; }
+
+/* calculator: a sentence the visitor fills in */
+.madlib { margin: clamp(40px, 7vh, 80px) 0 0; }
+.madlib p { font-variation-settings: "wdth" 68; font-weight: 600; font-size: clamp(1.7rem, 3.6vw, 3rem); line-height: 1.3; max-width: none; margin: 0 0 0.35em; color: var(--dim); }
+.madlib .nowrap { white-space: nowrap; color: var(--accent); }
+.madlib input {
+  font: inherit; font-variation-settings: inherit; color: var(--accent); background: transparent;
+  border: 0; border-bottom: 2px solid var(--accent); border-radius: 0; padding: 0 0.1em; margin: 0 0.1em;
+  text-align: center; -moz-appearance: textfield; appearance: textfield;
+  transition: color var(--fade), border-color var(--fade);
+}
+.madlib input::-webkit-outer-spin-button, .madlib input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.madlib input:hover { color: var(--bone); border-color: var(--bone); }
+.madlib input:focus-visible { outline: 2px solid var(--bone); outline-offset: 4px; color: var(--bone); }
+.madlib .n2 { width: 1.9em; } .madlib .n3 { width: 2.4em; } .madlib .n5 { width: 3.6em; }
+.result { margin-top: clamp(40px, 7vh, 80px); border-top: 1px solid var(--rule); padding-top: clamp(28px, 5vh, 48px); }
+.result .sum { font-variation-settings: "wdth" 68; font-weight: 600; font-size: clamp(4rem, 12vw, 10rem); line-height: 0.9; margin: 0; max-width: none; font-variant-numeric: tabular-nums; }
+.result .sum span { font-size: 0.22em; font-weight: 300; font-variation-settings: "wdth" 100; color: var(--dim); letter-spacing: 0; }
+.result .lede { margin-top: 1.25rem; }
+
+/* what we set up: set like end credits, role on the left, line on the right */
+.credits { text-align: center; }
+.credits h2, .credits .lede { margin-left: auto; margin-right: auto; }
+.roll { margin: clamp(48px, 9vh, 96px) 0 0; display: grid; gap: 30px; }
+.roll dt { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; font-variation-settings: "wdth" 110; color: var(--dim); }
+.roll dd { margin: 6px 0 0; font-size: 1.125rem; }
+@media (min-width: 760px) {
+  .roll > div { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: baseline; }
+  .roll dt { text-align: right; }
+  .roll dd { text-align: left; margin: 0; }
+}
+
+/* how it works: three numbered columns across the page */
+.across { list-style: none; counter-reset: s; margin: clamp(48px, 8vh, 88px) 0 0; padding: 0; display: grid; gap: 40px 56px; }
+@media (min-width: 860px) { .across { grid-template-columns: repeat(3, 1fr); } }
+.across li { counter-increment: s; border-top: 1px solid var(--rule); padding-top: 20px; }
+.across li::before { content: "0" counter(s); display: block; font-variation-settings: "wdth" 68; font-weight: 600; font-size: clamp(3rem, 6vw, 5rem); line-height: 1; color: var(--accent); margin-bottom: 1.25rem; }
+.across p { color: var(--dim); margin: 6px 0 0; }
+
+.contact .big { display: inline-block; margin-top: 1.75rem; font-variation-settings: "wdth" 68; font-weight: 600; font-size: clamp(1.6rem, 4.4vw, 3rem); line-height: 1.1; text-decoration-color: var(--rule); word-break: break-word; }
+.contact address { font-style: normal; color: var(--dim); margin-top: 1.5rem; }
+.ph { color: var(--accent); border: 1px dashed var(--accent); padding: 0 0.4em; font-size: 0.875rem; letter-spacing: 0.04em; }
+
+.policies { padding: 72px 0 40px; font-size: 0.9375rem; color: var(--dim); }
+.policies .three { display: grid; gap: 36px 56px; }
+@media (min-width: 900px) { .policies .three { grid-template-columns: repeat(3, 1fr); } }
+.policies h2 { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; font-variation-settings: "wdth" 110; color: var(--bone); margin-bottom: 1rem; max-width: none; line-height: 1.4; }
+.policies ul { margin: 0; padding-left: 1.1em; }
+.policies li { margin-bottom: 0.5em; }
+footer { border-top: 1px solid var(--rule); padding: 24px 0 44px; font-size: 0.8125rem; color: var(--dim); }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 24px; }
+footer nav { display: flex; flex-wrap: wrap; gap: 8px 22px; }
+
+/* motion: slow fades and one slow push-in on the hero. Nothing else moves. */
+@media (prefers-reduced-motion: no-preference) {
+  .hero .bg { animation: push 26s ease-out both; }
+  @keyframes push { from { transform: scale(1); } to { transform: scale(1.07); } }
+  .hero .card > * { opacity: 0; animation: rise 0.9s ease-out forwards; }
+  .hero .card > :nth-child(1) { animation-delay: 0.5s; }
+  .hero .card > :nth-child(2) { animation-delay: 0.8s; }
+  .hero .card > :nth-child(3) { animation-delay: 1.15s; }
+  .hero .card > :nth-child(4) { animation-delay: 1.5s; }
+  @keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+  .js .reveal { opacity: 0; transform: translateY(12px); transition: opacity 0.85s ease-out, transform 0.85s ease-out; }
+  .js .reveal.in { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+</style>
+</head>
+<body>
+<div class="grain" id="grain" aria-hidden="true"></div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="#top">Keep-Wright</a>
+    <a class="mail" href="mailto:legend@keep-wright.com">legend@keep-wright.com</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="scene hero" aria-labelledby="h-hero">
+    <img class="bg" src="assets/still-2400.jpg" srcset="assets/still-1100.jpg 1100w, assets/still-2400.jpg 2400w" sizes="100vw" alt="A phone lying dark and silent on a workbench after hours" fetchpriority="high">
+    <div class="shade"></div>
+    <div class="card wrap">
+      <p class="label">After hours · Toledo, Ohio</p>
+      <h1 id="h-hero">Never lose a local job to a missed call.</h1>
+      <p class="lede">Every missed call and web inquiry gets a reply in under a minute.</p>
+      <div class="buy">
+        <a class="btn" href="#stripe-audit" data-stripe="audit">Get the Missed-Call Audit · $99</a>
+        <small>Written report, delivered in 3 business days.</small>
+      </div>
+    </div>
+  </section>
+
+  <section class="scene short voicemail" id="problem" aria-labelledby="h-voicemail">
+    <img class="bg" src="assets/deskphone-1800.jpg" srcset="assets/deskphone-900.jpg 900w, assets/deskphone-1800.jpg 1800w" sizes="100vw" alt="An office desk phone sitting unanswered on a wooden table" loading="lazy" decoding="async">
+    <div class="shade"></div>
+    <div class="card wrap reveal">
+      <p class="label">The problem</p>
+      <h2 id="h-voicemail">Callers who reach voicemail usually call the next company.</h2>
+      <p class="lede">Fast replies win jobs. When you're on a roof or under a sink, the phone still rings. We make sure whoever called hears back from you right away.</p>
+    </div>
+  </section>
+
+  <section class="passage credits" aria-labelledby="h-what">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="label">What we set up</p>
+        <h2 id="h-what">Every call and inquiry gets an answer.</h2>
+        <p class="lede">Keep-Wright sets up automatic call and lead follow-up for small local businesses.</p>
+      </div>
+      <dl class="roll reveal">
+        <div><dt>Missed-call text-back</dt><dd>Callers get an instant text when you can't pick up.</dd></div>
+        <div><dt>Lead follow-up</dt><dd>Automatic messages to new inquiries over the following week.</dd></div>
+        <div><dt>Booking links and reminders</dt><dd>Customers pick a time and get a reminder before you show up.</dd></div>
+        <div><dt>Review requests</dt><dd>A short text asking for a review after each job.</dd></div>
+        <div><dt>Weekly report</dt><dd>Leads in, replied to, and booked, sent to you every week.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="scene short who" id="who" aria-labelledby="h-who">
+    <img class="bg" src="assets/bench-2200.jpg" srcset="assets/bench-1000.jpg 1000w, assets/bench-2200.jpg 2200w" sizes="100vw" alt="A workbench with hand tools hanging on the wall under two work lamps" loading="lazy" decoding="async">
+    <div class="shade"></div>
+    <div class="card wrap reveal">
+      <p class="label">Who it's for</p>
+      <h2 id="h-who">Built for the owner who answers the phone between jobs.</h2>
+      <p class="lede">Owner-operated home-service businesses (HVAC, plumbing, electrical, roofing) and real estate agents in Toledo and Northwest Ohio.</p>
+    </div>
+  </section>
+
+  <section class="passage calc" id="cost" aria-labelledby="h-cost">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="label">What it's costing you</p>
+        <h2 id="h-cost">Put your own numbers in.</h2>
+      </div>
+      <form class="madlib reveal" id="calc" onsubmit="return false">
+        <p>We miss about <input id="c-calls" class="n3" type="number" inputmode="numeric" min="0" max="500" value="5" aria-label="Missed calls per week"> calls a week.</p>
+        <p>An average job is worth <span class="nowrap">$<input id="c-job" class="n5" type="number" inputmode="numeric" min="0" max="100000" step="50" value="350" aria-label="Average job value in dollars"></span>.</p>
+        <p>Out of every 10 of those callers, about <input id="c-rate" class="n2" type="number" inputmode="numeric" min="0" max="10" value="3" aria-label="How many out of 10 callers would have booked"> would have booked.</p>
+      </form>
+      <div class="result reveal" aria-live="polite">
+        <p class="label">That is roughly</p>
+        <p class="sum"><output id="c-out" for="c-calls c-job c-rate">$2,280</output> <span>a month</span></p>
+        <p class="lede">About <span id="c-year">$27,300</span> a year in jobs that may be going to the next company.</p>
+      </div>
+      <div class="buy reveal">
+        <a class="btn" href="#stripe-audit" data-stripe="audit">Find out for sure · $99 audit</a>
+        <small>Simple arithmetic on your own numbers. An estimate, not a promise.</small>
+      </div>
+    </div>
+  </section>
+
+  <section class="passage" id="pricing" aria-labelledby="h-pricing" style="padding-top:0">
+    <div class="wrap cols">
+      <div class="reveal">
+        <p class="label">Services and pricing</p>
+        <h2 id="h-pricing">Start with the audit.</h2>
+        <p class="lede">See where jobs are slipping away before you spend on anything else.</p>
+      </div>
+      <div class="reveal">
+        <ul class="rows">
+          <li class="price" id="stripe-audit">
+            <h3>Missed-Call Audit</h3>
+            <div class="amt">$99</div>
+            <p>A written report showing how your phones, website and online listings may be costing you jobs, with specific fixes. Delivered digitally within 3 business days.</p>
+            <div class="buy">
+              <a class="btn" href="#stripe-audit" data-stripe="audit">Buy the audit · $99</a>
+              <span class="ph">Placeholder: Stripe link not connected yet</span>
+            </div>
+          </li>
+          <li class="price">
+            <h3>Lead Catcher Setup</h3>
+            <div class="amt"><small>from </small>$750</div>
+            <p>We set up the follow-up system above and test it with you. One-time fee. Delivered in about one week.</p>
+          </li>
+          <li class="price">
+            <h3>Ongoing support</h3>
+            <div class="amt">$297<small> / month</small></div>
+            <p>Optional. We keep the system running and adjust it as your business changes. Cancel anytime.</p>
+          </li>
+          <li class="price">
+            <h3>Custom lead lists</h3>
+            <div class="amt"><small>quoted per project</small></div>
+            <p>Email us what you're looking for.</p>
+          </li>
+        </ul>
+        <p class="fine">All prices in USD. Digital services only; no physical goods are shipped.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="passage" aria-labelledby="h-how" style="padding-top:0">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="label">How it works</p>
+        <h2 id="h-how">Three steps. Mostly ours.</h2>
+      </div>
+      <ol class="across reveal">
+        <li><h3>Tell us about your business</h3><p>Send a short email about what you do and how customers reach you.</p></li>
+        <li><h3>We review your lead handling</h3><p>We look at how calls and inquiries are handled today and where they slip through.</p></li>
+        <li><h3>We set it up and test it with you</h3><p>We put the fixes in place and walk through them with you before anything goes live.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="scene short contact" id="contact" aria-labelledby="h-contact">
+    <img class="bg" src="assets/lamp-2200.jpg" srcset="assets/lamp-1000.jpg 1000w, assets/lamp-2200.jpg 2200w" sizes="100vw" alt="A desk lamp lighting a small wooden desk in a dark room" loading="lazy" decoding="async">
+    <div class="shade"></div>
+    <div class="card wrap reveal">
+      <p class="label">Contact</p>
+      <h2 id="h-contact">Email is the fastest way to reach us.</h2>
+      <p class="lede">We reply within one business day.</p>
+      <a class="big" href="mailto:legend@keep-wright.com">legend@keep-wright.com</a>
+      <address><span class="ph">[POSTAL ADDRESS]</span><br>Serving Toledo, OH and nearby.</address>
+    </div>
+  </section>
+</main>
+
+<section class="policies" aria-label="Policies">
+  <div class="wrap three">
+    <div id="terms">
+      <h2>Terms</h2>
+      <ul>
+        <li>Keep-Wright is a sole proprietorship based in Toledo, Ohio.</li>
+        <li>Audits are paid upfront. Setups are paid at the start of the project.</li>
+        <li>The scope of each setup is agreed in writing by email before work begins.</li>
+        <li>Monthly support renews each month until you cancel.</li>
+      </ul>
+    </div>
+    <div id="refunds">
+      <h2>Refund policy</h2>
+      <ul>
+        <li>Audit: full refund if the report is not delivered within the stated time.</li>
+        <li>Setup: if we can't deliver the agreed scope, we refund the unused portion.</li>
+        <li>Monthly support: cancel anytime. The current month is not refunded once it has started.</li>
+        <li>To request a refund, email legend@keep-wright.com.</li>
+      </ul>
+    </div>
+    <div id="privacy">
+      <h2>Privacy</h2>
+      <p>We collect only what you email us, and use it only to do the work you asked for. We don't sell data. Payments are processed by Stripe; we never see your full card number. This site uses no tracking or analytics.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Keep-Wright, Toledo, Ohio.</span>
+    <nav aria-label="Policy links">
+      <a href="#terms">Terms</a>
+      <a href="#privacy">Privacy</a>
+      <a href="#refunds">Refund policy</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+document.documentElement.classList.add('js');
+
+// film grain: one small noise tile, repeated
+(function () {
+  var c = document.createElement('canvas'); c.width = c.height = 180;
+  var x = c.getContext('2d'), d = x.createImageData(180, 180);
+  for (var i = 0; i < d.data.length; i += 4) { var v = Math.random() * 255 | 0; d.data[i] = d.data[i + 1] = d.data[i + 2] = v; d.data[i + 3] = 255; }
+  x.putImageData(d, 0, 0);
+  document.getElementById('grain').style.backgroundImage = 'url(' + c.toDataURL() + ')';
+})();
+
+// slow fade as each title card comes into view
+(function () {
+  var els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('in'); }); return; }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+  }, { threshold: 0.18 });
+  els.forEach(function (e) { io.observe(e); });
+})();
+// missed-call calculator: the visitor's own numbers, plain arithmetic
+(function () {
+  var g = function (id) { return document.getElementById(id); };
+  var calls = g('c-calls'), job = g('c-job'), rate = g('c-rate'), out = g('c-out'), year = g('c-year');
+  function num(el, max) { var v = parseFloat(el.value); if (!isFinite(v) || v < 0) v = 0; return Math.min(v, max); }
+  function money(v) { return '$' + (Math.round(v / 10) * 10).toLocaleString('en-US'); }
+  function update() {
+    var month = num(calls, 500) * (num(rate, 10) / 10) * num(job, 100000) * 52 / 12;
+    out.textContent = money(month); year.textContent = money(month * 12);
+  }
+  [calls, job, rate].forEach(function (el) { el.addEventListener('input', update); });
+  update();
+})();
+</script>
+</body>
+</html>

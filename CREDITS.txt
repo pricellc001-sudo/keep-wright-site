@@ -1,0 +1,5 @@
+Photos are from Unsplash (free to use commercially under the Unsplash License, https://unsplash.com/license).
+still-*.jpg      https://unsplash.com/photos/zAZCqNM9Pz4
+deskphone-*.jpg  https://unsplash.com/photos/2UUXHx5pSt0
+bench-*.jpg      https://unsplash.com/photos/j8UApawyq_c
+lamp-*.jpg       https://unsplash.com/photos/okUB5th8QtQ

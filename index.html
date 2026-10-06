@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-r9GDKiJZxjzR2cFeILLuhNam7mExkkppo+sx8KUJveM='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Keep-Wright | Never lose a local job to a missed call</title>
 <meta name="description" content="Keep-Wright sets up automatic missed-call text-back and lead follow-up for small local businesses in Toledo and Northwest Ohio.">
 <link rel="canonical" href="https://keep-wright.com/">
@@ -317,7 +319,7 @@ footer nav { display: flex; flex-wrap: wrap; gap: 8px 22px; }
         <p class="label">What it's costing you</p>
         <h2 id="h-cost">Put your own numbers in.</h2>
       </div>
-      <form class="madlib reveal" id="calc" onsubmit="return false">
+      <form class="madlib reveal" id="calc">
         <p>We miss about <input id="c-calls" class="n3" type="number" inputmode="numeric" min="0" max="500" value="5" aria-label="Missed calls per week"> calls a week.</p>
         <p>An average job is worth <span class="nowrap">$<input id="c-job" class="n5" type="number" inputmode="numeric" min="0" max="100000" step="50" value="350" aria-label="Average job value in dollars"></span>.</p>
         <p>Out of every 10 of those callers, about <input id="c-rate" class="n2" type="number" inputmode="numeric" min="0" max="10" value="3" aria-label="How many out of 10 callers would have booked"> would have booked.</p>
@@ -467,6 +469,7 @@ document.documentElement.classList.add('js');
     out.textContent = money(month); year.textContent = money(month * 12);
   }
   [calls, job, rate].forEach(function (el) { el.addEventListener('input', update); });
+  document.getElementById('calc').addEventListener('submit', function (e) { e.preventDefault(); });
   update();
 })();
 </script>

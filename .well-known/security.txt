@@ -1,0 +1,5 @@
+Contact: mailto:legend@keep-wright.com
+Expires: 2027-10-05T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://keep-wright.com/.well-known/security.txt
+Policy: https://keep-wright.com/privacy.html

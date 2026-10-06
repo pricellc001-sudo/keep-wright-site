@@ -17,6 +17,37 @@
 <meta property="og:image:alt" content="A phone lying dark on a workbench, with the words: Never lose a local job to a missed call.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0a0908">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": "https://keep-wright.com/#business",
+  "name": "Keep-Wright",
+  "url": "https://keep-wright.com/",
+  "email": "legend@keep-wright.com",
+  "image": "https://keep-wright.com/assets/share.jpg",
+  "description": "Keep-Wright sets up automatic missed-call text-back and lead follow-up for small local service businesses in Toledo and Northwest Ohio.",
+  "address": { "@type": "PostalAddress", "addressLocality": "Toledo", "addressRegion": "OH", "addressCountry": "US" },
+  "areaServed": [
+    { "@type": "City", "name": "Toledo", "containedInPlace": { "@type": "State", "name": "Ohio" } },
+    { "@type": "AdministrativeArea", "name": "Northwest Ohio" }
+  ],
+  "priceRange": "$99 - $750",
+  "knowsAbout": ["missed-call text-back", "lead follow-up", "appointment reminders", "review requests"],
+  "makesOffer": [
+    { "@type": "Offer", "price": "99", "priceCurrency": "USD", "url": "https://keep-wright.com/#pricing",
+      "itemOffered": { "@type": "Service", "name": "Missed-Call Audit", "description": "A written report showing how your phones, website and online listings may be costing you jobs, with specific fixes. Delivered within 3 business days." } },
+    { "@type": "Offer", "price": "750", "priceCurrency": "USD", "url": "https://keep-wright.com/#pricing",
+      "itemOffered": { "@type": "Service", "name": "Lead Catcher Setup", "description": "Missed-call text-back, lead follow-up, booking links and reminders, review requests and a weekly report, set up and tested with you. One-time fee, from $750." } },
+    { "@type": "Offer", "price": "297", "priceCurrency": "USD", "url": "https://keep-wright.com/#pricing",
+      "priceSpecification": { "@type": "UnitPriceSpecification", "price": "297", "priceCurrency": "USD", "unitCode": "MON", "unitText": "per month" },
+      "itemOffered": { "@type": "Service", "name": "Ongoing support", "description": "Optional monthly support that keeps the system running and adjusts it as the business changes. Cancel anytime." } }
+  ]
+}
+</script>
 <!--
   TO SWAP WHEN READY
   1. Stripe: every link with data-stripe="audit" currently opens an order email.
@@ -226,7 +257,7 @@ footer nav { display: flex; flex-wrap: wrap; gap: 8px 22px; }
       <p class="lede">Every missed call and web inquiry gets a reply in under a minute.</p>
       <div class="buy">
         <a class="btn" href="mailto:legend@keep-wright.com?subject=Missed-Call%20Audit%20order" data-stripe="audit">Order the Missed-Call Audit · $99</a>
-        <small>Written report, delivered within 3 business days.</small>
+        <small>Order by email, pay by secure card invoice. Written report within 3 business days.</small>
       </div>
     </div>
   </section>
@@ -306,7 +337,7 @@ footer nav { display: flex; flex-wrap: wrap; gap: 8px 22px; }
             <p>A written report showing how your phones, website and online listings may be costing you jobs, with specific fixes. Delivered digitally within 3 business days of our receiving what we need from you.</p>
             <div class="buy">
               <a class="btn" href="mailto:legend@keep-wright.com?subject=Missed-Call%20Audit%20order" data-stripe="audit">Order the audit · $99</a>
-              <small>Order by email. We reply within one business day.</small>
+              <small>Order by email. We reply within one business day with a secure card invoice; never send card details by email.</small>
             </div>
           </li>
           <li class="price">

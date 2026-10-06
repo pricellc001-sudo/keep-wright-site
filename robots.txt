@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://keep-wright.com/sitemap.xml

@@ -56,7 +56,7 @@
   3. Refund policy lives in refund.html (owner approved the wording 2026-10-05).
 -->
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/archivo-latin.woff2" crossorigin>
-<link rel="preload" as="image" href="assets/still-2400.jpg" imagesrcset="assets/still-1100.jpg 1100w, assets/still-2400.jpg 2400w" imagesizes="100vw">
+<link rel="preload" as="image" type="image/avif" imagesrcset="assets/still-1100.avif 1100w, assets/still-2400.avif 2400w" imagesizes="100vw">
 <style>
 @font-face { font-family: "Archivo"; font-style: normal; font-weight: 300 700; font-stretch: 62% 125%; font-display: swap; src: url(assets/fonts/archivo-latin.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
 @font-face { font-family: "Archivo"; font-style: normal; font-weight: 300 700; font-stretch: 62% 125%; font-display: swap; src: url(assets/fonts/archivo-latin-ext.woff2) format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
@@ -249,7 +249,11 @@ footer nav { display: flex; flex-wrap: wrap; gap: 8px 22px; }
 
 <main id="top">
   <section class="scene hero" aria-labelledby="h-hero">
-    <img class="bg" src="assets/still-2400.jpg" srcset="assets/still-1100.jpg 1100w, assets/still-2400.jpg 2400w" sizes="100vw" alt="A phone lying dark and silent on a workbench after hours" fetchpriority="high">
+    <picture>
+<source type="image/avif" srcset="assets/still-1100.avif 1100w, assets/still-2400.avif 2400w" sizes="100vw">
+<source type="image/webp" srcset="assets/still-1100.webp 1100w, assets/still-2400.webp 2400w" sizes="100vw">
+<img class="bg" src="assets/still-2400.jpg" srcset="assets/still-1100.jpg 1100w, assets/still-2400.jpg 2400w" sizes="100vw" alt="A phone lying dark and silent on a workbench after hours" fetchpriority="high">
+</picture>
     <div class="shade"></div>
     <div class="card wrap">
       <p class="label">After hours · Toledo, Ohio</p>
@@ -263,7 +267,11 @@ footer nav { display: flex; flex-wrap: wrap; gap: 8px 22px; }
   </section>
 
   <section class="scene short voicemail" id="problem" aria-labelledby="h-voicemail">
-    <img class="bg" src="assets/deskphone-1800.jpg" srcset="assets/deskphone-900.jpg 900w, assets/deskphone-1800.jpg 1800w" sizes="100vw" alt="An office desk phone sitting unanswered on a wooden table" loading="lazy" decoding="async">
+    <picture>
+<source type="image/avif" srcset="assets/deskphone-900.avif 900w, assets/deskphone-1800.avif 1800w" sizes="100vw">
+<source type="image/webp" srcset="assets/deskphone-900.webp 900w, assets/deskphone-1800.webp 1800w" sizes="100vw">
+<img class="bg" src="assets/deskphone-1800.jpg" srcset="assets/deskphone-900.jpg 900w, assets/deskphone-1800.jpg 1800w" sizes="100vw" alt="An office desk phone sitting unanswered on a wooden table" loading="lazy" decoding="async">
+</picture>
     <div class="shade"></div>
     <div class="card wrap reveal">
       <p class="label">The problem</p>
@@ -290,7 +298,11 @@ footer nav { display: flex; flex-wrap: wrap; gap: 8px 22px; }
   </section>
 
   <section class="scene short who" id="who" aria-labelledby="h-who">
-    <img class="bg" src="assets/bench-2200.jpg" srcset="assets/bench-1000.jpg 1000w, assets/bench-2200.jpg 2200w" sizes="100vw" alt="A workbench with hand tools hanging on the wall under two work lamps" loading="lazy" decoding="async">
+    <picture>
+<source type="image/avif" srcset="assets/bench-1000.avif 1000w, assets/bench-2200.avif 2200w" sizes="100vw">
+<source type="image/webp" srcset="assets/bench-1000.webp 1000w, assets/bench-2200.webp 2200w" sizes="100vw">
+<img class="bg" src="assets/bench-2200.jpg" srcset="assets/bench-1000.jpg 1000w, assets/bench-2200.jpg 2200w" sizes="100vw" alt="A workbench with hand tools hanging on the wall under two work lamps" loading="lazy" decoding="async">
+</picture>
     <div class="shade"></div>
     <div class="card wrap reveal">
       <p class="label">Who it's for</p>
@@ -376,7 +388,11 @@ footer nav { display: flex; flex-wrap: wrap; gap: 8px 22px; }
   </section>
 
   <section class="scene short contact" id="contact" aria-labelledby="h-contact">
-    <img class="bg" src="assets/lamp-2200.jpg" srcset="assets/lamp-1000.jpg 1000w, assets/lamp-2200.jpg 2200w" sizes="100vw" alt="A desk lamp lighting a small wooden desk in a dark room" loading="lazy" decoding="async">
+    <picture>
+<source type="image/avif" srcset="assets/lamp-1000.avif 1000w, assets/lamp-2200.avif 2200w" sizes="100vw">
+<source type="image/webp" srcset="assets/lamp-1000.webp 1000w, assets/lamp-2200.webp 2200w" sizes="100vw">
+<img class="bg" src="assets/lamp-2200.jpg" srcset="assets/lamp-1000.jpg 1000w, assets/lamp-2200.jpg 2200w" sizes="100vw" alt="A desk lamp lighting a small wooden desk in a dark room" loading="lazy" decoding="async">
+</picture>
     <div class="shade"></div>
     <div class="card wrap reveal">
       <p class="label">Contact</p>

@@ -3,3 +3,5 @@ still-*.jpg      https://unsplash.com/photos/zAZCqNM9Pz4
 deskphone-*.jpg  https://unsplash.com/photos/2UUXHx5pSt0
 bench-*.jpg      https://unsplash.com/photos/j8UApawyq_c
 lamp-*.jpg       https://unsplash.com/photos/okUB5th8QtQ
+
+Typeface: Archivo by Omnibus-Type, SIL Open Font License 1.1, self-hosted from Google Fonts (assets/fonts).

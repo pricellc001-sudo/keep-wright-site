@@ -1,6 +1,6 @@
 # keep-wright.com
 
-Static site for Keep-Wright, served by GitHub Pages from the `main` branch of this repo.
+Static site for Keepwrightꓘ, served by GitHub Pages from the `main` branch of this repo.
 Custom domain via the `CNAME` file; DNS lives at Squarespace; HTTPS is enforced in the repo's Pages settings.
 
 ## Layout
@@ -10,7 +10,7 @@ Custom domain via the `CNAME` file; DNS lives at Squarespace; HTTPS is enforced 
 | `index.html` | The one-page site: hero, problem, what we set up, who it's for, calculator, pricing, how it works, contact, policy summaries |
 | `terms.html`, `privacy.html`, `refund.html` | Full policy pages, each with a version line and effective date |
 | `404.html` | Served by GitHub Pages for any missing URL (uses absolute asset paths for that reason) |
-| `assets/` | Scene photos in AVIF, WebP and JPEG at two widths each; share card; self-hosted Archivo font |
+| `assets/` | Scene photos in AVIF, WebP and JPEG at two widths each; share card; self-hosted Archivo font plus two tiny companion fonts that supply the reversed K (U+A4D8) in the brand as a mirrored Archivo K |
 | `favicon.svg`, `favicon.ico`, `apple-touch-icon.png` | Icons. Regenerate all three together if the mark changes |
 | `robots.txt`, `sitemap.xml` | Crawl hints. The sitemap lists the four indexable pages |
 | `.well-known/security.txt` | Security contact (RFC 9116). Has an `Expires` date; renew it yearly |
